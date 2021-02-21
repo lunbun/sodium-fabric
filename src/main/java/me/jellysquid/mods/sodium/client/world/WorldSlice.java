@@ -436,13 +436,23 @@ public class WorldSlice extends ReusableObject implements BlockRenderView, Biome
         return this.blockOffsetZ;
     }
 
+//    @Override
+//    public int method_31607() {
+//        return 0;
+//    }
+//
+//    @Override
+//    public int method_31605() {
+//        return 0;
+//    }
+
     @Override
-    public int method_31607() {
+    public int getHeight() {
         return 0;
     }
 
     @Override
-    public int method_31605() {
+    public int getBottomY() {
         return 0;
     }
 }

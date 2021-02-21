@@ -12,6 +12,7 @@
     "core.matrix.MixinMatrix4f",
     "core.model.MixinBlockColors",
     "core.model.MixinItemColors",
+    "core.options.MixinBooleanCyclingOption",
     "core.pipeline.MixinBakedQuad",
     "core.pipeline.MixinVertexConsumer",
     "features.block.MixinBlockModelRenderer",
@@ -44,7 +45,11 @@
     "features.particle.fast_render.MixinBillboardParticle",
     "features.render_layer.MixinRenderLayers",
     "features.texture_tracking.MixinSprite",
+    "features.texture_tracking.MixinSprite$MixinSpriteAnimation",
     "features.texture_tracking.MixinSpriteIdentifier",
     "features.world_ticking.MixinClientWorld"
+  ],
+  "mixins": [
+
   ]
 }

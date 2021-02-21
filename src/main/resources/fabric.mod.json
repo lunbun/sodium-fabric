@@ -2,15 +2,15 @@
   "schemaVersion": 1,
   "id": "sodium",
   "version": "${version}",
-  "name": "Sodium 20w45a Port",
+  "name": "Sodium 21w07a Port",
   "description": "Sodium is a free and open-source optimization mod for Minecraft which improves frame rates and reduces lag spikes.\nThis is an unofficial port of JellySquid's original mod.",
   "authors": [
-    "MrMangoHands"
+    "Lunbun"
   ],
   "contact": {
-    "homepage": "https://github.com/mrmangohands/sodium-fabric",
-    "issues": "https://github.com/mrmangohands/sodium-fabric/issues",
-    "sources": "https://github.com/mrmangohands/sodium-fabric"
+    "homepage": "https://github.com/lunbun/sodium-fabric",
+    "issues": "https://github.com/lunbun/sodium-fabric/issues",
+    "sources": "https://github.com/lunbun/sodium-fabric"
   },
   "license": "LGPL-3.0-only",
   "icon": "assets/sodium/icon.png",

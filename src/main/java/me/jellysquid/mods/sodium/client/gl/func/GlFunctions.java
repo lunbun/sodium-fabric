@@ -1,7 +1,6 @@
 package me.jellysquid.mods.sodium.client.gl.func;
 
-import org.lwjgl.opengl.GL;
-import org.lwjgl.opengl.GLCapabilities;
+import org.lwjgl.opengl.*;
 
 public class GlFunctions {
     private static final GLCapabilities capabilities = GL.getCapabilities();
@@ -25,5 +24,15 @@ public class GlFunctions {
 
     public static boolean isInstancedArraySupported() {
         return INSTANCED_ARRAY != GlInstancedArrayFunctions.UNSUPPORTED;
+    }
+
+    public static void clearErrors() {
+        while (GL43.glGetError() != GL30.GL_NO_ERROR);
+    }
+
+    public static void printErrors() {
+        int err;
+        while ((err = GL43.glGetError()) != GL30.GL_NO_ERROR)
+            System.out.println("GL Error: " + err);
     }
 }
