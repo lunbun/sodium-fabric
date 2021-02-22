@@ -2,10 +2,14 @@ accessWidener v1 named
 
 accessible class net/minecraft/client/model/ModelPart$Vertex
 accessible class net/minecraft/client/model/ModelPart$Quad
+accessible class net/minecraft/client/texture/Sprite$class_5790
+accessible class net/minecraft/client/texture/Sprite$class_5791
 accessible class net/minecraft/client/texture/Sprite$Interpolation
 
-accessible method net/minecraft/client/texture/Sprite$Interpolation apply ()V
+accessible method net/minecraft/client/texture/Sprite$Interpolation apply (Lnet/minecraft/client/texture/Sprite$class_5790;)V
 accessible method net/minecraft/client/render/Frustum isVisible (DDDDDD)Z
 
 accessible field net/minecraft/client/option/CyclingOption setter Lnet/minecraft/client/option/CyclingOption$class_5675;
 accessible field net/minecraft/client/option/CyclingOption getter Ljava/util/function/Function;
+accessible field net/minecraft/client/texture/Sprite$class_5791 field_28475 I
+accessible field net/minecraft/client/texture/Sprite$class_5791 field_28476 I

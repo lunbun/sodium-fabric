@@ -60,7 +60,7 @@ public abstract class MixinBillboardParticle extends Particle {
         }
 
         float size = this.getSize(tickDelta);
-        int light = this.getColorMultiplier(tickDelta);
+        int light = this.getBrightness(tickDelta);
 
         float minU = this.getMinU();
         float maxU = this.getMaxU();
