@@ -109,7 +109,7 @@ public class ChunkRenderRebuildTask<T extends ChunkGraphicsState> extends ChunkR
                         }
                     }
 
-                    if (block.getDefaultState().method_31709()) {
+                    if (block.getDefaultState().hasBlockEntity()) {
                         BlockEntity entity = this.slice.getBlockEntity(pos, WorldChunk.CreationType.CHECK);
 
                         if (entity != null) {

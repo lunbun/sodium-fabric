@@ -32,6 +32,7 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL15;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL40;
+import org.lwjgl.system.CallbackI;
 
 import java.util.ArrayList;
 import java.util.Iterator;
