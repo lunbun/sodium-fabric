@@ -1,16 +1,11 @@
 ![Project icon](https://git-assets.jellysquid.me/hotlink-ok/sodium/icon-rounded-128px.png)
 
-# Sodium Ports (for Fabric)
-![GitHub license](https://img.shields.io/github/license/mrmangohands/sodium-fabric.svg)
-![GitHub issues](https://img.shields.io/github/issues/mrmangohands/sodium-fabric.svg)
-![GitHub tag](https://img.shields.io/github/tag/mrmangohands/sodium-fabric.svg)
-
+# Sodium Snapshot Ports (for Fabric)
 Sodium is a free and open-source optimization mod for the Minecraft client that improves frame rates, reduces
 micro-stutter, and fixes graphical issues in Minecraft. 
 
-These are unofficial ports of [JellySquid's original mod](https://github.com/jellysquid3/sodium-fabric) to versions
-that aren't maintained or present upstream. 1.15.2 and 1.16.1 are the current priority, ports for 1.17 snapshots will
-be considered as they're released, and a 1.14 port is not planned.
+These are unofficial ports of [MrMangoHand's fork](https://github.com/mrmangohands/sodium-fabric) of [JellySquid's original mod](https://github.com/jellysquid3/sodium-fabric) to versions
+that aren't maintained or present upstream. Ports for 1.17 snapshots are the priority, and no other versions are being developed.
 
 :warning: Sodium has had a lot of time to shape up lately, but the mod is still alpha software. You may run into small
 graphical issues or crashes while using it. Additionally, the
@@ -19,7 +14,7 @@ or prevent other mods from rendering correctly. Please be aware of these issues 
 
 ### Downloads
 
-You can find downloads on the [GitHub releases page](https://github.com/mrmangohands/sodium-fabric/releases).
+You can find downloads on the [GitHub releases page](https://github.com/lunbun/sodium-fabric/releases).
 
 ### Building from source
 
@@ -63,4 +58,4 @@ guide [here](https://gist.github.com/jellysquid3/8a7b21e57f47f5711eb5697e282e502
 ### License
 
 Sodium is licensed under GNU LGPLv3, a free and open-source license. For more information, please see the
-[license file](https://github.com/mrmangohands/sodium-fabric/blob/1.16.1/stable/LICENSE.txt).
+[license file](https://github.com/lunbun/sodium-fabric/blob/1.17./stable/LICENSE.txt).
