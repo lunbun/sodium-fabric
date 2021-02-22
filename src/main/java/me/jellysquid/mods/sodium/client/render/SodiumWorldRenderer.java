@@ -87,7 +87,7 @@ public class SodiumWorldRenderer implements ChunkStatusListener {
 
     private SodiumWorldRenderer(MinecraftClient client) {
         this.client = client;
-        this.blockEntityRenderDispatcher = client.method_31975();
+        this.blockEntityRenderDispatcher = client.getBlockEntityRenderDispatcher();
     }
 
     public void setWorld(ClientWorld world) {
