@@ -6,7 +6,7 @@ import net.minecraft.client.particle.BillboardParticle;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.render.Camera;
 import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.util.math.Vector3f;
+import net.minecraft.util.math.Vec3f;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Quaternion;
@@ -56,7 +56,7 @@ public abstract class MixinBillboardParticle extends Particle {
             float angle = MathHelper.lerp(tickDelta, this.prevAngle, this.angle);
 
             quaternion = new Quaternion(camera.getRotation());
-            quaternion.hamiltonProduct(Vector3f.POSITIVE_Z.getRadialQuaternion(angle));
+            quaternion.hamiltonProduct(Vec3f.POSITIVE_Z.getRadialQuaternion(angle));
         }
 
         float size = this.getSize(tickDelta);
