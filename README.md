@@ -58,4 +58,4 @@ guide [here](https://gist.github.com/jellysquid3/8a7b21e57f47f5711eb5697e282e502
 ### License
 
 Sodium is licensed under GNU LGPLv3, a free and open-source license. For more information, please see the
-[license file](https://github.com/lunbun/sodium-fabric/blob/1.17./stable/LICENSE.txt).
+[license file](https://github.com/lunbun/sodium-fabric/blob/1.17.x/stable/LICENSE.txt).
