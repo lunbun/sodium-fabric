@@ -437,12 +437,12 @@ public class WorldSlice extends ReusableObject implements BlockRenderView, Biome
     }
 
     @Override
-    public int getSectionCount() {
+    public int getHeight() {
         return 0;
     }
 
     @Override
-    public int getBottomSectionLimit() {
+    public int getBottomY() {
         return 0;
     }
 }
