@@ -16,16 +16,16 @@ import java.util.List;
 public abstract class MixinSprite implements SpriteExtended {
     @Shadow @Final
     // private Sprite.Animation animation
-    private Sprite.class_5790 field_28468;
+    private Sprite.Animation animation;
 
     @Override
     public void markActive() {
-        if (this.field_28468 instanceof SpriteUpdateForcible) {
-            ((SpriteUpdateForcible) this.field_28468).setForceNextUpdate(true);
+        if (this.animation instanceof SpriteUpdateForcible) {
+            ((SpriteUpdateForcible) this.animation).setForceNextUpdate(true);
         }
     }
 
-    @Mixin(targets = "net.minecraft.client.texture.Sprite.class_5790")
+    @Mixin(targets = "net.minecraft.client.texture.Sprite.Animation")
     public static abstract class MixinSpriteAnimation implements SpriteUpdateForcible {
         private boolean forceNextUpdate;
 
@@ -41,25 +41,25 @@ public abstract class MixinSprite implements SpriteExtended {
 
         @Shadow
         // private int frameTicks
-        private int field_28471;
+        private int frameTicks;
 
         @Shadow
         // private int frameIndex
-        private int field_28470;
+        private int frameIndex;
 
         @Shadow @Final
         // private int frameCount
-        private int field_28473;
+        private int frameCount;
 
         @Shadow
         // protected abstract void upload(int frameIndex)
-        protected abstract void method_33455(int frameIndex);
+        protected abstract void upload(int frameIndex);
 
         @Shadow @Final
-        private Sprite.Interpolation field_28474;
+        private Sprite.Interpolation interpolation;
 
         @Shadow @Final
-        private List<Sprite.class_5791> field_28472;
+        private List<Sprite.AnimationFrame> frames;
 
         /**
          * @author JellySquid
@@ -67,7 +67,7 @@ public abstract class MixinSprite implements SpriteExtended {
          */
         @Overwrite
         public void tick() {
-            ++this.field_28471;
+            ++this.frameTicks;
 
             boolean onDemand = SodiumClientMod.options().advanced.animateOnlyVisibleTextures;
 
@@ -77,19 +77,19 @@ public abstract class MixinSprite implements SpriteExtended {
         }
 
         private void uploadTexture() {
-            if (this.field_28471 >= this.getFrameTime(this.field_28470)) {
-                int prevFrameIndex = this.getFrameIndex(this.field_28470);
-                int frameCount = this.field_28473 == 0 ? this.field_28473 : this.field_28473;
+            if (this.frameTicks >= this.getFrameTime(this.frameIndex)) {
+                int prevFrameIndex = this.getFrameIndex(this.frameIndex);
+                int frameCount = this.frameCount == 0 ? this.frameCount : this.frameCount;
 
-                this.field_28470 = (this.field_28470 + 1) % frameCount;
-                this.field_28471 = 0;
+                this.frameIndex = (this.frameIndex + 1) % frameCount;
+                this.frameTicks = 0;
 
-                int frameIndex = this.getFrameIndex(this.field_28470);
+                int frameIndex = this.getFrameIndex(this.frameIndex);
 
-                if (prevFrameIndex != frameIndex && frameIndex >= 0 && frameIndex < this.field_28473) {
-                    this.method_33455(frameIndex);
+                if (prevFrameIndex != frameIndex && frameIndex >= 0 && frameIndex < this.frameCount) {
+                    this.upload(frameIndex);
                 }
-            } else if (this.field_28474 != null) {
+            } else if (this.interpolation != null) {
                 if (!RenderSystem.isOnRenderThread()) {
                     RenderSystem.recordRenderCall(this::updateInterpolatedTexture);
                 } else {
@@ -101,19 +101,19 @@ public abstract class MixinSprite implements SpriteExtended {
         }
 
         private void updateInterpolatedTexture() {
-            this.field_28474.apply((Sprite.class_5790) ((Object) this));
+            this.interpolation.apply((Sprite.Animation) ((Object) this));
         }
 
-        private Sprite.class_5791 getFrame(int frameIndex) {
-            return this.field_28472.get(frameIndex);
+        private Sprite.AnimationFrame getFrame(int frameIndex) {
+            return this.frames.get(frameIndex);
         }
 
         private int getFrameTime(int frameIndex) {
-            return getFrame(frameIndex).field_28476;
+            return getFrame(frameIndex).time;
         }
 
         private int getFrameIndex(int frameIndex) {
-            return getFrame(frameIndex).field_28475;
+            return getFrame(frameIndex).index;
         }
     }
 }
