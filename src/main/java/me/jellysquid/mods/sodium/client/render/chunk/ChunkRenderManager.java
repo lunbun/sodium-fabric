@@ -495,7 +495,7 @@ public class ChunkRenderManager<T extends ChunkGraphicsState> implements ChunkSt
     }
 
     public void scheduleRebuild(int x, int y, int z, boolean important) {
-        ChunkRenderContainer<T> render = this.getRender(x, y, z);
+        ChunkRenderContainer<T> render = this.getRender(x, y + 4, z);
 
         if (render != null) {
             // Nearby chunks are always rendered immediately
