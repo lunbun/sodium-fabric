@@ -105,7 +105,8 @@ public abstract class ChunkRenderBackendOneshot<T extends ChunkOneshotGraphicsSt
         float modelY = camera.getChunkModelOffset(state.getY(), camera.blockOriginY, camera.originY);
         float modelZ = camera.getChunkModelOffset(state.getZ(), camera.blockOriginZ, camera.originZ);
 
-        this.activeProgram.setModelOffset(modelX, modelY, modelZ);
+        // TODO: properly shift terrain down and don't hardcode shift amount
+        this.activeProgram.setModelOffset(modelX, modelY - 64, modelZ);
     }
 
     protected void buildBatch(T state, int visibleFaces) {
