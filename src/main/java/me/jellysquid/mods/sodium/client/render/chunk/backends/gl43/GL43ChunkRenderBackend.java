@@ -284,8 +284,7 @@ public class GL43ChunkRenderBackend extends ChunkRenderBackendMultiDraw<LCBGraph
             float y = camera.getChunkModelOffset(state.getY(), camera.blockOriginY, camera.originY);
             float z = camera.getChunkModelOffset(state.getZ(), camera.blockOriginZ, camera.originZ);
 
-            // TODO: properly shift terrain down and don't hardcode shift amount
-            this.uniformBufferBuilder.pushChunkDrawParams(x, y - 64, z);
+            this.uniformBufferBuilder.pushChunkDrawParams(x, y, z);
 
             ChunkRegion<LCBGraphicsState> region = state.getRegion();
             ChunkDrawCallBatcher batch = region.getDrawBatcher();

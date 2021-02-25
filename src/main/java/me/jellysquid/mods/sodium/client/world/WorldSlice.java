@@ -99,7 +99,7 @@ public class WorldSlice extends ReusableObject implements BlockRenderView, Biome
 
     public static WorldChunk[] createChunkSlice(World world, ChunkSectionPos pos) {
         WorldChunk chunk = world.getChunk(pos.getX(), pos.getZ());
-        ChunkSection section = chunk.getSectionArray()[pos.getY()];
+        ChunkSection section = chunk.getSectionArray()[pos.getY() + 4];
 
         // If the chunk section is absent or empty, simply terminate now. There will never be anything in this chunk
         // section to render, so we need to signal that a chunk render task shouldn't created. This saves a considerable
@@ -199,8 +199,8 @@ public class WorldSlice extends ReusableObject implements BlockRenderView, Biome
                     ChunkSection section = null;
 
                     // Fetch the chunk section for this position if it's within bounds
-                    if (chunkY >= 0 && chunkY < 16) {
-                        section = chunk.getSectionArray()[chunkY];
+                    if (chunkY >= -4 && chunkY < 20) {
+                        section = chunk.getSectionArray()[chunkY + 4];
                     }
 
                     // If no chunk section has been fetched, use an empty one which will return air blocks in the copy below

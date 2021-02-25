@@ -48,7 +48,7 @@ public class BiomeCacheManager {
     public void dropCachesForChunk(int centerX, int centerZ) {
         for (int x = centerX - 1; x <= centerX; x++) {
             for (int z = centerZ - 1; z <= centerZ; z++) {
-                for (int y = 0; y <= 16; y++) {
+                for (int y = -4; y <= 20; y++) {
                     BiomeCache column = this.caches.remove(ChunkSectionPos.asLong(x, y, z));
 
                     if (column != null) {

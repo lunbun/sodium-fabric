@@ -207,11 +207,11 @@ public class ChunkRenderManager<T extends ChunkGraphicsState> implements ChunkSt
             ChunkRenderBounds bounds = render.getBounds();
 
             if (bounds != null) {
-                if (this.cameraY + 64 > bounds.y1) {
+                if (this.cameraY > bounds.y1) {
                     visibleFaces |= 1 << ModelQuadFacing.UP.ordinal();
                 }
 
-                if (this.cameraY + 64 < bounds.y2) {
+                if (this.cameraY < bounds.y2) {
                     visibleFaces |= 1 << ModelQuadFacing.DOWN.ordinal();
                 }
 
@@ -339,7 +339,7 @@ public class ChunkRenderManager<T extends ChunkGraphicsState> implements ChunkSt
     }
 
     private void loadChunk(int x, int z) {
-        for (int y = 0; y < 16; y++) {
+        for (int y = -4; y < 20; y++) {
             ChunkRenderContainer<T> render = this.renders.computeIfAbsent(ChunkSectionPos.asLong(x, y, z), this::createChunkRender);
 
             for (Direction dir : DirectionUtil.ALL_DIRECTIONS) {
@@ -356,7 +356,7 @@ public class ChunkRenderManager<T extends ChunkGraphicsState> implements ChunkSt
     }
 
     private void unloadChunk(int x, int z) {
-        for (int y = 0; y < 16; y++) {
+        for (int y = -4; y < 20; y++) {
             ChunkRenderContainer<T> render = this.renders.remove(ChunkSectionPos.asLong(x, y, z));
 
             if (render == null) {
@@ -385,7 +385,7 @@ public class ChunkRenderManager<T extends ChunkGraphicsState> implements ChunkSt
 
         ChunkRenderContainer<T> render = new ChunkRenderContainer<>(this.backend, this.renderer, x, y, z);
 
-        if (ChunkSection.isEmpty(this.world.getChunk(x, z).getSectionArray()[y])) {
+        if (ChunkSection.isEmpty(this.world.getChunk(x, z).getSectionArray()[y + 4])) {
             render.setData(ChunkRenderData.EMPTY);
         } else {
             render.scheduleRebuild(false);
@@ -495,7 +495,7 @@ public class ChunkRenderManager<T extends ChunkGraphicsState> implements ChunkSt
     }
 
     public void scheduleRebuild(int x, int y, int z, boolean important) {
-        ChunkRenderContainer<T> render = this.getRender(x, y + 4, z);
+        ChunkRenderContainer<T> render = this.getRender(x, y, z);
 
         if (render != null) {
             // Nearby chunks are always rendered immediately
