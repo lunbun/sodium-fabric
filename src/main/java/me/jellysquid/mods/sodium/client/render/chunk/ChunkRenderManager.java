@@ -207,11 +207,11 @@ public class ChunkRenderManager<T extends ChunkGraphicsState> implements ChunkSt
             ChunkRenderBounds bounds = render.getBounds();
 
             if (bounds != null) {
-                if (this.cameraY > bounds.y1) {
+                if (this.cameraY + 64 > bounds.y1) {
                     visibleFaces |= 1 << ModelQuadFacing.UP.ordinal();
                 }
 
-                if (this.cameraY < bounds.y2) {
+                if (this.cameraY + 64 < bounds.y2) {
                     visibleFaces |= 1 << ModelQuadFacing.DOWN.ordinal();
                 }
 
